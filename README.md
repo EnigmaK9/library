@@ -1,5 +1,11 @@
 # Library Management System
 
+# GIF
+
+![Demo](./library.gif)
+
+# Introduction
+
 This program manages book loans and returns for a small library.
 It supports adding users and books, lending and returning books, counting available books, searching by author, and calculating overdue fines.
 
@@ -163,5 +169,4 @@ flowchart TD
     classDef decision fill:#F8CECC,stroke:#B85450,stroke-width:2px,stroke-dasharray:5 5,color:#333333;
     classDef error    fill:#FCE5CD,stroke:#E69138,stroke-width:2px,color:#333333;
     classDef endNode  fill:#E1D5E7,stroke:#9673A6,stroke-width:2px,color:#333333;
-
 ````
