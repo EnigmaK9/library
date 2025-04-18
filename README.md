@@ -1,9 +1,7 @@
-README.md
-
-```markdown
 # Library Management System
 
-This program manages book loans and returns for a small library. It allows adding books, lending and returning them, and counting available books.
+This program manages book loans and returns for a small library.
+It allows adding books, lending and returning them, and counting available books.
 
 ## UML Diagram
 
