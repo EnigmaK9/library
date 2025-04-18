@@ -1,7 +1,7 @@
 # Library Management System
 
 This program manages book loans and returns for a small library.
-It allows adding books, lending and returning them, and counting available books.
+It supports adding users and books, lending and returning books, counting available books, searching by author, and calculating overdue fines.
 
 ## UML Diagram
 
@@ -28,6 +28,8 @@ classDiagram
         + lendBook(bookId: int, userId: int): bool
         + returnBook(bookId: int, userId: int): bool
         + countAvailableBooks(): int
+        + searchBooksByAuthor(author: string): vector<Book>
+        + calculateFine(daysLate: int): double
     }
     Book "1" *-- "0..*" Library : contains
     User "1" *-- "0..*" Library : members
@@ -37,8 +39,8 @@ classDiagram
 
 ## Prerequisites
 
-- Debian-based Linux distribution
-- sudo privileges
+- Debian‑based Linux distribution
+- `sudo` privileges
 
 ## Installation
 
@@ -49,11 +51,23 @@ sudo apt install -y build-essential
 
 ## File Structure
 
-- book.h, book.cpp: Defines the Book structure.
-- user.h, user.cpp: Defines the User structure.
-- library.h, library.cpp: Declares and implements the Library class.
-- main.cpp: Contains the main function demonstrating usage.
-- README.md: Project documentation.
+- **book.h**, **book.cpp**
+  Defines the `Book` struct.
+
+- **user.h**, **user.cpp**
+  Defines the `User` struct.
+
+- **library.h**, **library.cpp**
+  Declares and implements `Library` class (core functionality).
+
+- **main.cpp**
+  Provides an interactive terminal menu to exercise all features.
+
+- **README.md**
+  This documentation.
+
+- **generate_library.sh**
+  (Optional) Bash script to dump all files into `library.txt`.
 
 ## Compilation
 
@@ -61,27 +75,52 @@ sudo apt install -y build-essential
 g++ -std=c++17 -o library main.cpp book.cpp user.cpp library.cpp
 ```
 
-## Execution
+## Running the Program
+
+Launch the interactive menu:
 
 ```bash
 ./library
+```
 
-## Usage Examples
+You will see options to:
 
-### Adding a Book
+1. Add User
+2. Add Book
+3. Lend Book
+4. Return Book
+5. Count Available Books
+6. Search Books by Author
+7. Calculate Late Fine
+0. Exit
 
-In main.cpp, add a book by calling:
+Follow on‑screen prompts to enter IDs, titles, author names, or days late.
 
-library.addBook(Book("The Hobbit", "J.R.R. Tolkien", 103));
+## Example Session
 
-### Lending a Book
+```
+Library Menu:
+1. Add User
+2. Add Book
+3. Lend Book
+4. Return Book
+5. Count Available Books
+6. Search Books by Author
+7. Calculate Late Fine
+0. Exit
+Choose an option: 2
+Enter book title: The Hobbit
+Enter author: J.R.R. Tolkien
+Enter book ID: 103
+Book added.
 
-Lend a book to a user with:
+Choose an option: 6
+Enter author name: J.R.R. Tolkien
+103: The Hobbit
 
-if (library.lendBook(103, 1)) {
-    std::cout << "Book 103 lent to user 1." << std::endl;
-}
+Choose an option: 7
+Days late: 5
+Fine: $2.50
 
-### Counting Available Books
-
-Count and display available books:
+Choose an option: 0
+Exiting...
