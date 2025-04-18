@@ -123,3 +123,46 @@ Fine: $2.50
 Choose an option: 0
 Exiting...
 ```
+
+
+
+```mermaid
+flowchart TD
+    A[Start Program] --> B[Initialize Library]
+    B --> C{Show Menu \n and Get Choice}
+    
+    C -->|1. Add User| D[Input user name and ID]
+    D --> E[Create User Object]
+    E --> F[Add User to Library]
+    F --> C
+
+    C -->|2. Add Book| G[Input book title, author, and ID]
+    G --> H[Create Book Object]
+    H --> I[Add Book to Library (if not full)]
+    I --> C
+
+    C -->|3. Lend Book| J[Input book ID and user ID]
+    J --> K[Check availability and user existence]
+    K --> L[Lend Book if valid]
+    L --> C
+
+    C -->|4. Return Book| M[Input book ID and user ID]
+    M --> N[Check if user has borrowed book]
+    N --> O[Return Book and update availability]
+    O --> C
+
+    C -->|5. Count Available Books| P[Display number of available books]
+    P --> C
+
+    C -->|6. Search Books by Author| Q[Input author name]
+    Q --> R[Find and Display Matching Books]
+    R --> C
+
+    C -->|7. Calculate Late Fine| S[Input number of late days]
+    S --> T[Calculate and Display Fine]
+    T --> C
+
+    C -->|0. Exit| Z[End Program]
+
+    C -->|Invalid Option| C
+```
