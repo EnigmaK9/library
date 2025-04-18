@@ -129,7 +129,7 @@ Exiting...
 ```mermaid
 flowchart TD
     A[Start Program] --> B[Initialize Library]
-    B --> C{Show Menu \n and Get Choice}
+    B --> C{Show Menu and Get Choice}
     
     C -->|1. Add User| D[Input user name and ID]
     D --> E[Create User Object]
@@ -138,17 +138,17 @@ flowchart TD
 
     C -->|2. Add Book| G[Input book title, author, and ID]
     G --> H[Create Book Object]
-    H --> I[Add Book to Library (if not full)]
+    H --> I[Try to Add Book to Library]
     I --> C
 
     C -->|3. Lend Book| J[Input book ID and user ID]
     J --> K[Check availability and user existence]
-    K --> L[Lend Book if valid]
+    K --> L[Lend Book if possible]
     L --> C
 
     C -->|4. Return Book| M[Input book ID and user ID]
     M --> N[Check if user has borrowed book]
-    N --> O[Return Book and update availability]
+    N --> O[Return Book and update status]
     O --> C
 
     C -->|5. Count Available Books| P[Display number of available books]
