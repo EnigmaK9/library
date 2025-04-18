@@ -127,18 +127,39 @@ Exiting...
 ### FlowChart
 
 ```mermaid
-flowchart TD
-    Start([Start]):::start --> Menu{"Library Menu"}
-    Menu --> |1: Add User| AddUser[Get User Name & ID]:::action
-    Menu --> |2: Add Book| AddBook[Get Book Title, Author & ID]:::action
-    Menu --> |3: Lend Book| LendBook[Enter Book ID & User ID]:::action
-    Menu --> |4: Return Book| ReturnBook[Enter Book ID & User ID]:::action
-    Menu --> |5: Count Available| CountBooks[Calculate & Display Count]:::action
-    Menu --> |6: Search by Author| SearchAuthor[Enter Author Name & Display Results]:::action
-    Menu --> |7: Calculate Fine| CalcFine[Enter Days Late & Display Fine]:::action
-    Menu --> |0: Exit| Exit([Exit]):::end
+## Flowchart
 
-    classDef start fill:#e2f7e2,stroke:#2ecc71,stroke-width:2px;
-    classDef action fill:#f0f8ff,stroke:#3498db,stroke-width:1px;
-    classDef end   fill:#fde2e2,stroke:#e74c3c,stroke-width:2px;
+```mermaid
+flowchart TD
+    subgraph LibraryManagement["Library Management System"]
+        Start(("Start")):::start --> ShowMenu["Display Library Menu"]:::process
+        ShowMenu --> InputChoice["Read User Choice"]:::input
+        InputChoice --> DecisionChoice{Option Selected?}:::decision
+        DecisionChoice -->|1| AddUser[Add New User]:::process
+        DecisionChoice -->|2| AddBook[Add New Book]:::process
+        DecisionChoice -->|3| LendBook[Lend Book to User]:::process
+        DecisionChoice -->|4| ReturnBook[Return Book]:::process
+        DecisionChoice -->|5| CountBooks[Count Available Books]:::process
+        DecisionChoice -->|6| SearchAuthor["Search Books by Author"]:::process
+        DecisionChoice -->|7| CalcFine[Calculate Late Fine]:::process
+        DecisionChoice -->|0| Exit(("Exit")):::end
+        DecisionChoice -->|else| Invalid["Invalid Option\nShow Error"]:::error
+
+        %% loop back for all non‑exit actions
+        AddUser --> ShowMenu
+        AddBook --> ShowMenu
+        LendBook --> ShowMenu
+        ReturnBook --> ShowMenu
+        CountBooks --> ShowMenu
+        SearchAuthor --> ShowMenu
+        CalcFine --> ShowMenu
+        Invalid --> ShowMenu
+    end
+
+    classDef start   fill:#D5E8D4,stroke:#82B366,stroke-width:2px;
+    classDef input   fill:#FFF2CC,stroke:#D6B656,stroke-width:2px;
+    classDef process fill:#DAE8FC,stroke:#6C8EBF,stroke-width:2px;
+    classDef decision fill:#F8CECC,stroke:#B85450,stroke-width:2px,stroke-dasharray:5 5;
+    classDef error   fill:#FCE5CD,stroke:#E69138,stroke-width:2px;
+    classDef end     fill:#E1D5E7,stroke:#9673A6,stroke-width:2px;
 ```
