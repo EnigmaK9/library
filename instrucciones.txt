@@ -1,0 +1,38 @@
+Proyecto 1: Sistema de Gestión de Biblioteca
+
+Descripción:
+Los estudiantes crearán un programa para gestionar préstamos y devoluciones de libros, almacenando datos de libros y usuarios.
+
+Requisitos técnicos (C++):
+Dos tipos de estructuras Libros y Usuarios.
+
+Libros deberá tener: Título, Autor, id, Disponible.
+Usuario: Nombre, Id, Libros prestados.
+
+Funciones:
+
+agregar Libro: Añade un libro
+
+prestar Libro: Actualiza el estado del libro
+
+calcular Libros Disponibles: Cuenta libros disponibles.
+
+Constantes:
+
+MAX_LIBROS = 200;
+
+Documentación:
+
+Comentarios en código (qué hace cada función).
+
+Manual de usuario en un archivo README.txt con instrucciones de uso.
+
+Rúbrica (100 puntos):
+
+
+Criterio	Puntaje	Descripción
+Elementos	25	Estructuras, funciones, paso por valor/referencia correctos.
+Lógica	25	Préstamos/devoluciones sin errores (ej: no prestar libros no disponibles).
+Modularidad	15	Funciones separadas (no todo en main).
+Creatividad	15	Funciones extra (ej: búsqueda por autor, multas por retraso).
+Documentación	20	Código comentado + manual claro en README.
