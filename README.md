@@ -124,45 +124,21 @@ Choose an option: 0
 Exiting...
 ```
 
-
+### FlowChart
 
 ```mermaid
 flowchart TD
-    A[Start Program] --> B[Initialize Library]
-    B --> C{Show Menu and Get Choice}
-    
-    C -->|1. Add User| D[Input user name and ID]
-    D --> E[Create User Object]
-    E --> F[Add User to Library]
-    F --> C
+    Start([Start]):::start --> Menu{"Library Menu"}
+    Menu --> |1: Add User| AddUser[Get User Name & ID]:::action
+    Menu --> |2: Add Book| AddBook[Get Book Title, Author & ID]:::action
+    Menu --> |3: Lend Book| LendBook[Enter Book ID & User ID]:::action
+    Menu --> |4: Return Book| ReturnBook[Enter Book ID & User ID]:::action
+    Menu --> |5: Count Available| CountBooks[Calculate & Display Count]:::action
+    Menu --> |6: Search by Author| SearchAuthor[Enter Author Name & Display Results]:::action
+    Menu --> |7: Calculate Fine| CalcFine[Enter Days Late & Display Fine]:::action
+    Menu --> |0: Exit| Exit([Exit]):::end
 
-    C -->|2. Add Book| G[Input book title, author, and ID]
-    G --> H[Create Book Object]
-    H --> I[Try to Add Book to Library]
-    I --> C
-
-    C -->|3. Lend Book| J[Input book ID and user ID]
-    J --> K[Check availability and user existence]
-    K --> L[Lend Book if possible]
-    L --> C
-
-    C -->|4. Return Book| M[Input book ID and user ID]
-    M --> N[Check if user has borrowed book]
-    N --> O[Return Book and update status]
-    O --> C
-
-    C -->|5. Count Available Books| P[Display number of available books]
-    P --> C
-
-    C -->|6. Search Books by Author| Q[Input author name]
-    Q --> R[Find and Display Matching Books]
-    R --> C
-
-    C -->|7. Calculate Late Fine| S[Input number of late days]
-    S --> T[Calculate and Display Fine]
-    T --> C
-
-    C -->|0. Exit| Z[End Program]
-
-    C -->|Invalid Option| C
+    classDef start fill:#e2f7e2,stroke:#2ecc71,stroke-width:2px;
+    classDef action fill:#f0f8ff,stroke:#3498db,stroke-width:1px;
+    classDef end   fill:#fde2e2,stroke:#e74c3c,stroke-width:2px;
 ```
