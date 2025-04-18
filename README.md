@@ -130,6 +130,8 @@ Exiting...
 
 ### Flowchart
 
+### Flowchart
+
 ```mermaid
 flowchart TD
     subgraph Library["Library Management System"]
@@ -156,9 +158,10 @@ flowchart TD
         Invalid --> Menu
     end
 
-    classDef start    fill:#D5E8D4,stroke:#82B366,stroke-width:2px;
-    classDef process  fill:#DAE8FC,stroke:#6C8EBF,stroke-width:2px;
-    classDef decision fill:#F8CECC,stroke:#B85450,stroke-width:2px,stroke-dasharray:5 5;
-    classDef error    fill:#FCE5CD,stroke:#E69138,stroke-width:2px;
-    classDef endNode  fill:#E1D5E7,stroke:#9673A6,stroke-width:2px;
-```
+    classDef start    fill:#D5E8D4,stroke:#82B366,stroke-width:2px,color:#333333;
+    classDef process  fill:#DAE8FC,stroke:#6C8EBF,stroke-width:2px,color:#333333;
+    classDef decision fill:#F8CECC,stroke:#B85450,stroke-width:2px,stroke-dasharray:5 5,color:#333333;
+    classDef error    fill:#FCE5CD,stroke:#E69138,stroke-width:2px,color:#333333;
+    classDef endNode  fill:#E1D5E7,stroke:#9673A6,stroke-width:2px,color:#333333;
+
+````
