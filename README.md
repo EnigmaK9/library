@@ -65,3 +65,23 @@ g++ -std=c++17 -o library main.cpp book.cpp user.cpp library.cpp
 
 ```bash
 ./library
+
+## Usage Examples
+
+### Adding a Book
+
+In main.cpp, add a book by calling:
+
+library.addBook(Book("The Hobbit", "J.R.R. Tolkien", 103));
+
+### Lending a Book
+
+Lend a book to a user with:
+
+if (library.lendBook(103, 1)) {
+    std::cout << "Book 103 lent to user 1." << std::endl;
+}
+
+### Counting Available Books
+
+Count and display available books:
