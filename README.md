@@ -41,6 +41,7 @@ classDiagram
 
 - Debian‑based Linux distribution
 - `sudo` privileges
+- g++ installed
 
 ## Installation
 
@@ -66,9 +67,6 @@ sudo apt install -y build-essential
 - **README.md**
   This documentation.
 
-- **generate_library.sh**
-  (Optional) Bash script to dump all files into `library.txt`.
-
 ## Compilation
 
 ```bash
@@ -92,7 +90,7 @@ You will see options to:
 5. Count Available Books
 6. Search Books by Author
 7. Calculate Late Fine
-0. Exit
+8. Exit
 
 Follow on‑screen prompts to enter IDs, titles, author names, or days late.
 
@@ -124,3 +122,4 @@ Fine: $2.50
 
 Choose an option: 0
 Exiting...
+```
